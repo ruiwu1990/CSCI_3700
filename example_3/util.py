@@ -47,3 +47,15 @@ def run_and_fetch_sql(cursor, sql_string=""):
 	except (Exception, Error) as error:
 		print("Errors while executes the code: ", error)
 		return -1
+
+def run_and_commit_sql(cursor, connection, sql_string=""):
+	try:
+	    # Executing a SQL query
+	    cursor.execute(sql_string)
+	    # if some changes are made, you need to commit your changes
+	    connection.commit()
+	    # use 1 to represent success
+	    return 1
+	except (Exception, Error) as error:
+		print("Errors while executes the code: ", error)
+		return -1

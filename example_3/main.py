@@ -24,26 +24,21 @@ database='dvdrental'
 @app.route('/')
 # this is how you define a function in Python
 def index():
-    # this is your index page
-    # no need to specify which type this varible is...
-    # in Python you can even do this:
-    # a = 'aaa'
-    # a = 1
-    # connect to DB
-    cursor, connection = util.connect_to_db(username,password,host,port,database)
-    # execute SQL commands
-    record = util.run_and_fetch_sql(cursor, "SELECT * from customer;")
-    if record == -1:
-        # you can replace this part with a 404 page
-        print('Something is wrong with the SQL command')
-    else:
-        # only use the first five rows
-        log = record[:5]
-    # disconnect from database
-    util.disconnect_from_db(connection,cursor)
+    # TODO: connect to DB
+
+    # TODO: delete cucumber from basket_a
+    # use function in util.py
+
+    # TODO: check what is uniquely in basket_a but not in basket_b
+    # use a varilable name record2 to store the sql results
+
+
+    # TODO: disconnect from database
+
+
     # using render_template function, Flask will search
     # the file named index.html under templates folder
-    return render_template('index.html', log_html = log)
+    return render_template('index.html', log_html = record2)
 
 
 if __name__ == '__main__':
